@@ -1,10 +1,17 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var express = require('express');
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
+
+app.get('/screen-share-host', function(req, res){
+  res.sendFile(__dirname + '/index-screenshare.html');
+});
+
+app.use(express.static('public'));
 
 app.get('/client', function(req, res){
   res.sendFile(__dirname + '/client.html');
