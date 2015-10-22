@@ -507,7 +507,7 @@ function getUserMedia(options) {
         var ctx = canvas.get()[0].getContext('2d');
         var socket = io();
         setInterval(function(){
-            ctx.drawImage(liveVideo, 0, 0, 320,240);
+            ctx.drawImage(liveVideo, 0, 0, 640,480);
             var data = canvas[0].toDataURL("image/jpeg");
             socket.emit('video', data);
         },10);
